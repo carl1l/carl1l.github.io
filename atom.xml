@@ -6,7 +6,7 @@
   <link href="https://624579819.github.io/atom.xml" rel="self"/>
   
   <link href="https://624579819.github.io/"/>
-  <updated>2022-08-31T03:01:26.828Z</updated>
+  <updated>2022-09-01T15:29:26.232Z</updated>
   <id>https://624579819.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有趣的程序逆向</title>
+    <link href="https://624579819.github.io/2022/09/01/you-qu-de-cheng-xu-ni-xiang/"/>
+    <id>https://624579819.github.io/2022/09/01/you-qu-de-cheng-xu-ni-xiang/</id>
+    <published>2022-09-01T15:16:43.000Z</published>
+    <updated>2022-09-01T15:29:26.232Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;有趣的程序逆向&quot;&gt;&lt;a href=&quot;#有趣的程序逆向&quot; class=&quot;headerlink&quot; title=&quot;有趣的程序逆向&quot;&gt;&lt;/a&gt;有趣的程序逆向&lt;/h1&gt;&lt;pre class=&quot;line-numbers language-纯文本&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="逆向" scheme="https://624579819.github.io/categories/%E9%80%86%E5%90%91/"/>
+    
+    
+    <category term="逆向" scheme="https://624579819.github.io/tags/%E9%80%86%E5%90%91/"/>
+    
+  </entry>
   
   <entry>
     <title>NodeBlog</title>

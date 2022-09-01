@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>有趣的程序逆向</title>
+      <link href="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/"/>
+      <url>/2022/09/01/you-qu-de-cheng-xu-ni-xiang/</url>
+      
+        <content type="html"><![CDATA[<h1 id="有趣的程序逆向"><a href="#有趣的程序逆向" class="headerlink" title="有趣的程序逆向"></a>有趣的程序逆向</h1><pre class="line-numbers language-纯文本" data-language="纯文本"><code class="language-纯文本">#include&lt;stdio.h&gt;int max(int a,int b)&#123;  int z;  if(a&gt;b) z&#x3D;a;  else z&#x3D;b;   &#x2F;&#x2F;return (z);    &#125; int main()&#123;  int a,b,c;  scanf(&quot;%d %d&quot;,&amp;a,&amp;b);  c&#x3D;max(a,b);  printf(&quot;max &#x3D; %d\n&quot;,c);  return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>将此程序用devc++进行编译，一定得是devc++</p><p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_LOEH3zS47Y.png"></p><p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_hLaiPvy405.png"></p><p>max函数并没有返回值并且devc++上竟然能成功编译，最离谱的是大小比较功能还在，max函数没有return回来最大值为什么主函数最后能输出最大值，拖入ida进行分析</p><p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_ek_oy3-xR-.png"></p><p>首先是主函数，可以看到</p><p>输入的值放入了[rbp+var_C]和[rbp+var_8]中，接着把输入的值放入edx和ecx中，然后通过call指令进入max函数</p><p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_DqFWCst_QR.png"></p><p>这里最终输入的值在eax和[rbp+arg_8]中，并通过cmp进行比较，如果eax的值小于等于[rbp+arg_8],则通过jle跳转，这里放大跳转的loc_40154E</p><p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_Dx7P13NaZY.png"></p><p>将[rbp+arg_8]存储的值放入eax,即将较大的那个书放入eax中，回到上面,若在cmp比较时eax的值大于[rbp+arg_8]则继续向下执行，经过了几次mov，eax的值并没有发生变化，接着返回主函数</p><p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_Ibp0l-s9oz.png"></p><p>可以发现最终输出的值就是eax存储的值，即在max函数中的较大值。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 逆向 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逆向 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>NodeBlog</title>
       <link href="/2022/08/31/nodeblog/"/>
       <url>/2022/08/31/nodeblog/</url>
