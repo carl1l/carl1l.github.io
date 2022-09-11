@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://624579819.github.io/google40ea12d356bdcef0.html</loc>
+    
+    <lastmod>2022-09-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://624579819.github.io/2022/09/01/you-qu-de-cheng-xu-ni-xiang/</loc>
     
     <lastmod>2022-09-01</lastmod>
@@ -94,7 +103,7 @@
 
   <url>
     <loc>https://624579819.github.io/</loc>
-    <lastmod>2022-09-02</lastmod>
+    <lastmod>2022-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,14 +111,14 @@
   
   <url>
     <loc>https://624579819.github.io/tags/%E9%9D%B6%E5%9C%BA/</loc>
-    <lastmod>2022-09-02</lastmod>
+    <lastmod>2022-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://624579819.github.io/tags/%E9%80%86%E5%90%91/</loc>
-    <lastmod>2022-09-02</lastmod>
+    <lastmod>2022-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -118,14 +127,14 @@
   
   <url>
     <loc>https://624579819.github.io/categories/HackTheBox/</loc>
-    <lastmod>2022-09-02</lastmod>
+    <lastmod>2022-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://624579819.github.io/categories/%E9%80%86%E5%90%91/</loc>
-    <lastmod>2022-09-02</lastmod>
+    <lastmod>2022-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
