@@ -4,14 +4,32 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="有趣的程序逆向, carl&#39;s blog">
-    <meta name="description" content="有趣的程序逆向#include&amp;lt;stdio.h&amp;gt;
-int max(int a,int b)
-&amp;#123;
-  int z;
-  if(a&amp;gt;b) z&amp;#x3D;a;
-  else z&amp;#x3D;b; 
-  &amp;#x2F;&amp;#x">
+    <meta name="keywords" content="f403, carl&#39;s blog">
+    <meta name="description" content="目录
+介绍
+
+用法
+
+功能
+
+测试常见http方法
+
+添加常见的http头
+
+在url末尾添加部分字符
+
+在url中间添加部分字符
+
+
+
+使用实例
+
+实战
+
+工具地址：
+
+
+f403:一款针对403页面进行bypass尝试的工具介绍f403">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +41,7 @@ int max(int a,int b)
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>有趣的程序逆向 | carl&#39;s blog</title>
+    <title>f403 | carl&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -278,12 +296,12 @@ int max(int a,int b)
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">有趣的程序逆向</h1>
+                    <h1 class="description center-align post-title">f403</h1>
                 </div>
             </div>
         </div>
@@ -307,8 +325,8 @@ int max(int a,int b)
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%80%86%E5%90%91/">
-                                <span class="chip bg-color">逆向</span>
+                            <a href="/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
                             </a>
                         
                     </div>
@@ -319,8 +337,8 @@ int max(int a,int b)
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%80%86%E5%90%91/" class="post-category">
-                                逆向
+                            <a href="/categories/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/" class="post-category">
+                                安全开发
                             </a>
                         
                     </div>
@@ -332,7 +350,7 @@ int max(int a,int b)
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-01
+                    2022-10-13
                 </div>
                 
 
@@ -356,36 +374,66 @@ int max(int a,int b)
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="有趣的程序逆向"><a href="#有趣的程序逆向" class="headerlink" title="有趣的程序逆向"></a>有趣的程序逆向</h1><pre class="line-numbers language-纯文本" data-language="纯文本"><code class="language-纯文本">#include&lt;stdio.h&gt;
-int max(int a,int b)
-&#123;
-  int z;
-  if(a&gt;b) z&#x3D;a;
-  else z&#x3D;b; 
-  &#x2F;&#x2F;return (z);    
-&#125; 
-int main()
-&#123;
-  int a,b,c;
-  scanf(&quot;%d %d&quot;,&amp;a,&amp;b);
-  c&#x3D;max(a,b);
-  printf(&quot;max &#x3D; %d\n&quot;,c);
-  return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><p><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></p>
+</li>
+<li><p><a href="#%E7%94%A8%E6%B3%95">用法</a></p>
+</li>
+<li><p><a href="#%E5%8A%9F%E8%83%BD">功能</a></p>
+<ul>
+<li><p><a href="#%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81http%E6%96%B9%E6%B3%95">测试常见http方法</a></p>
+</li>
+<li><p><a href="#%E6%B7%BB%E5%8A%A0%E5%B8%B8%E8%A7%81%E7%9A%84http%E5%A4%B4">添加常见的http头</a></p>
+</li>
+<li><p><a href="#%E5%9C%A8url%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0%E9%83%A8%E5%88%86%E5%AD%97%E7%AC%A6">在url末尾添加部分字符</a></p>
+</li>
+<li><p><a href="#%E5%9C%A8url%E4%B8%AD%E9%97%B4%E6%B7%BB%E5%8A%A0%E9%83%A8%E5%88%86%E5%AD%97%E7%AC%A6">在url中间添加部分字符</a></p>
+</li>
+</ul>
+</li>
+<li><p><a href="#%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B">使用实例</a></p>
+</li>
+<li><p><a href="#%E5%AE%9E%E6%88%98">实战</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%85%B7%E5%9C%B0%E5%9D%80">工具地址：</a></p>
+</li>
+</ul>
+<h1 id="f403-一款针对403页面进行bypass尝试的工具"><a href="#f403-一款针对403页面进行bypass尝试的工具" class="headerlink" title="f403:一款针对403页面进行bypass尝试的工具"></a>f403:一款针对403页面进行bypass尝试的工具</h1><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>f403是一款针对403页面进行bypass尝试的工具，payload可自定义，采用golang编写，通过并发的方式发送payload，高效快捷。</p>
+<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><p><img src="/2022/10/13/f403/image_2nnopaOPKn.png"></p>
+<pre class="line-numbers language-纯文本" data-language="纯文本"><code class="language-纯文本">-a, --AddHeader strings   the headers you will add,for explame cookie: 123,Referer: https:&#x2F;&#x2F;www.baidu.com
+-b, --bypassip strings    the ip or ips you will add behind some header like x-client-ip: 192.168.1.1,for example,-b 192.168.1.1,30.1.1.1 and the default values are 127.0.0.1,localhost
+-h, --help                help for f403
+-p, --proxy string        the proxy you will use,support http and socks5 ,for example: -p http:&#x2F;&#x2F;127.0.0.1:8080 or -p socks5:&#x2F;&#x2F;127.0.0.1:8080
+-u, --url string          the target url<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>将此程序用devc++进行编译，一定得是devc++</p>
-<p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_LOEH3zS47Y.png"></p>
-<p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_hLaiPvy405.png"></p>
-<p>max函数并没有返回值并且devc++上竟然能成功编译，最离谱的是大小比较功能还在，max函数没有return回来最大值为什么主函数最后能输出最大值，拖入ida进行分析</p>
-<p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_ek_oy3-xR-.png"></p>
-<p>首先是主函数，可以看到</p>
-<p>输入的值放入了[rbp+var_C]和[rbp+var_8]中，接着把输入的值放入edx和ecx中，然后通过call指令进入max函数</p>
-<p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_DqFWCst_QR.png"></p>
-<p>这里最终输入的值在eax和[rbp+arg_8]中，并通过cmp进行比较，如果eax的值小于等于[rbp+arg_8],则通过jle跳转，这里放大跳转的loc_40154E</p>
-<p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_Dx7P13NaZY.png"></p>
-<p>将[rbp+arg_8]存储的值放入eax,即将较大的那个书放入eax中，回到上面,若在cmp比较时eax的值大于[rbp+arg_8]则继续向下执行，经过了几次mov，eax的值并没有发生变化，接着返回主函数</p>
-<p><img src="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/image_Ibp0l-s9oz.png"></p>
-<p>可以发现最终输出的值就是eax存储的值，即在max函数中的较大值。</p>
+<ol>
+<li><p>-a 参数添加自定义http头，例如需要在后台某页面进行bypass403尝试便可添加cookie头</p>
+</li>
+<li><p>-b参数设置X-Client-IP,X-Forward-For等http头后的ip地址，默认为127.0.0.1和localhost</p>
+</li>
+<li><p>-p参数设置发送请求时的代理，支持http和socks5</p>
+</li>
+<li><p>-u参数设置url路径</p>
+</li>
+</ol>
+<p>其中payload配置文件在f403.yaml中，可自由添加或删除。</p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="测试常见http方法"><a href="#测试常见http方法" class="headerlink" title="测试常见http方法"></a>测试常见http方法</h2><p><img src="/2022/10/13/f403/image_kVY_DZKmFf.png"></p>
+<h2 id="添加常见的http头"><a href="#添加常见的http头" class="headerlink" title="添加常见的http头"></a>添加常见的http头</h2><p><img src="/2022/10/13/f403/image_92NsKFVxSi.png"></p>
+<p><img src="/2022/10/13/f403/image_fceWVbkzPp.png"></p>
+<h2 id="在url末尾添加部分字符"><a href="#在url末尾添加部分字符" class="headerlink" title="在url末尾添加部分字符"></a>在url末尾添加部分字符</h2><p><img src="/2022/10/13/f403/image_qSHw0J-Dt2.png"></p>
+<h2 id="在url中间添加部分字符"><a href="#在url中间添加部分字符" class="headerlink" title="在url中间添加部分字符"></a>在url中间添加部分字符</h2><p><img src="/2022/10/13/f403/image_FH-OAGcHQA.png"></p>
+<h1 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h1><p>简单用法:</p>
+<pre class="line-numbers language-纯文本" data-language="纯文本"><code class="language-纯文本">.&#x2F;f403 -u http:&#x2F;&#x2F;www.google.com&#x2F;admin&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>全参数用法:</p>
+<pre class="line-numbers language-纯文本" data-language="纯文本"><code class="language-纯文本">.&#x2F;f403 -u http:&#x2F;&#x2F;www.google.com&#x2F;admin&#x2F; -a cookie:123,Origin:https:&#x2F;&#x2F;30.110.0.0 -p http:&#x2F;&#x2F;127.0.0.1:60090 -b 39.122.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/2022/10/13/f403/image_je5w0I2hBD.png"></p>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p>在挖掘某src时使用该工具成功发现某api接口存在权限绕过 &amp;#x20;<br>若直接访问该api接口会被拦截</p>
+<p><img src="/2022/10/13/f403/image_16_jltAAkE.png"></p>
+<p>使用f403进行尝试，由于此处厂商已修复，所以未能再次复现保存使用工具时的截图。使用工具发现添加http头X-Forwarded-For: localhost 可成功绕过限制</p>
+<p><img src="/2022/10/13/f403/image_8O54hMtdED.png"></p>
+<h1 id="工具地址："><a href="#工具地址：" class="headerlink" title="工具地址："></a>工具地址：</h1><pre class="line-numbers language-纯文本" data-language="纯文本"><code class="language-纯文本">https:&#x2F;&#x2F;github.com&#x2F;carl1l&#x2F;f403<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -412,7 +460,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://624579819.github.io/2022/09/01/you-qu-de-cheng-xu-ni-xiang/">https://624579819.github.io/2022/09/01/you-qu-de-cheng-xu-ni-xiang/</a>
+                    <a href="https://624579819.github.io/2022/10/13/f403/">https://624579819.github.io/2022/10/13/f403/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -450,8 +498,8 @@ int main()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%80%86%E5%90%91/">
-                                    <span class="chip bg-color">逆向</span>
+                                <a href="/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
                                 </a>
                             
                         </div>
@@ -530,9 +578,10 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/10/13/f403/">
                     <div class="card-image">
@@ -550,9 +599,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -565,6 +614,7 @@ int main()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -583,13 +633,13 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/31/nodeblog/">
+                <a href="/2022/09/01/you-qu-de-cheng-xu-ni-xiang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="NodeBlog">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="有趣的程序逆向">
                         
-                        <span class="card-title">NodeBlog</span>
+                        <span class="card-title">有趣的程序逆向</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -600,14 +650,14 @@ int main()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/HackTheBox/" class="post-category">
-                                    HackTheBox
+                            <a href="/categories/%E9%80%86%E5%90%91/" class="post-category">
+                                    逆向
                                 </a>
                             
                             
@@ -617,8 +667,8 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%B6%E5%9C%BA/">
-                        <span class="chip bg-color">靶场</span>
+                    <a href="/tags/%E9%80%86%E5%90%91/">
+                        <span class="chip bg-color">逆向</span>
                     </a>
                     
                 </div>
